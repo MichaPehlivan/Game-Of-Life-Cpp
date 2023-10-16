@@ -41,9 +41,6 @@ int main() {
 
     while (!quit)
     {
-        //start time
-        int start = SDL_GetTicks();
-
         //Handle events on queue
         while( SDL_PollEvent( &e ) != 0 )
         {
@@ -74,11 +71,8 @@ int main() {
         //Update the surface
         SDL_UpdateWindowSurface(window);
 
-        //end time
-        double time_elapsed = SDL_GetTicks() - start;
-
         //enforce framerate
-        usleep(FRAMETIME_MICROSECONDS - time_elapsed);
+        usleep(FRAMETIME_MICROSECONDS);
     }
 
     //Destroy window
